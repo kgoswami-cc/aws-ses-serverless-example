@@ -16,6 +16,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    echo "Organization URL: $(System.TeamFoundationCollectionUri)"
+    echo "Project Name: $(System.TeamProject)"
+  displayName: 'Print Organization and Project Details'
     npm install
     npm run build
-  displayName: 'npm install and build'
