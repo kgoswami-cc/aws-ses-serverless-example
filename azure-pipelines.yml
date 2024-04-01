@@ -26,6 +26,7 @@ stages:
 
 - stage: TestKG
   displayName: Test Stage
+  dependsOn: BuildKG  # Adding dependency on BuildKG stage
   jobs:
     - job: TestJob
       displayName: Test Job
