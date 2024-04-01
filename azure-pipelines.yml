@@ -1,8 +1,3 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
 trigger:
 - master
 
@@ -24,6 +19,10 @@ stages:
         - script: 'echo "Repo URL: https://github.com/kgoswami-cc/aws-ses-serverless-example"'
           displayName: 'Print Repo URL'
         # Add your build steps here
+        - script: 'npm install'
+          displayName: 'Install Dependencies'
+        - script: 'npm run build'
+          displayName: 'Build Project'
 
 - stage: TestKG
   displayName: Test Stage
@@ -38,3 +37,8 @@ stages:
         - checkout: self
         - script: 'echo "Repo URL: https://github.com/kgoswami-cc/aws-ses-serverless-example"'
           displayName: 'Print Repo URL'
+        # Add your test steps here
+        - script: 'npm install'
+          displayName: 'Install Dependencies'
+        - script: 'npm test'
+          displayName: 'Run Tests'
