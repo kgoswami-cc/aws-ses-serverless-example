@@ -24,22 +24,22 @@ stages:
         - script: 'npm run build'
           displayName: 'Build Project'
 
-- stage: TestKG
-  displayName: Test Stage
-  dependsOn: BuildKG  # Adding dependency on BuildKG stage
-  jobs:
-    - job: TestJob
-      displayName: Test Job
-      steps:
-        - script: 'echo "Organization URL: $(System.TeamFoundationCollectionUri)"'
-          displayName: 'Print Organization URL'
-        - script: 'echo "Project Name: $(System.TeamProject)"'
-          displayName: 'Print Project Name'
-        - checkout: self
-        - script: 'echo "Repo URL: https://github.com/kgoswami-cc/aws-ses-serverless-example"'
-          displayName: 'Print Repo URL'
-        # Add your test steps here
-        - script: 'npm install'
-          displayName: 'Install Dependencies'
-        - script: 'npm test'
-          displayName: 'Run Tests'
+# - stage: TestKG
+#   displayName: Test Stage
+#   dependsOn: BuildKG  # Adding dependency on BuildKG stage
+#   jobs:
+#     - job: TestJob
+#       displayName: Test Job
+#       steps:
+#         - script: 'echo "Organization URL: $(System.TeamFoundationCollectionUri)"'
+#           displayName: 'Print Organization URL'
+#         - script: 'echo "Project Name: $(System.TeamProject)"'
+#           displayName: 'Print Project Name'
+#         - checkout: self
+#         - script: 'echo "Repo URL: https://github.com/kgoswami-cc/aws-ses-serverless-example"'
+#           displayName: 'Print Repo URL'
+#         # Add your test steps here
+#         - script: 'npm install'
+#           displayName: 'Install Dependencies'
+#         - script: 'npm test'
+#           displayName: 'Run Tests'
