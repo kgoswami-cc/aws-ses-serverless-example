@@ -9,13 +9,32 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+stages:
+- stage: Build
+  displayName: Build Stage
+  jobs:
+    - job: BuildJob
+      displayName: Build Job
+      steps:
+        - script: 'echo "Organization URL: $(System.TeamFoundationCollectionUri)"'
+          displayName: 'Print Organization URL'
+        - script: 'echo "Project Name: $(System.TeamProject)"'
+          displayName: 'Print Project Name'
+        - checkout: self
+        - script: 'echo "Repo URL: https://github.com/kgoswami-cc/aws-ses-serverless-example"'
+          displayName: 'Print Repo URL'
+        # Add your build steps here
 
-- script: |
-    echo "Organization URL: $(System.TeamFoundationCollectionUri)"
-    echo "Project Name: $(System.TeamProject)"
-  displayName: 'Print Organization and Project Details'
+- stage: Test
+  displayName: Test Stage
+  jobs:
+    - job: TestJob
+      displayName: Test Job
+      steps:
+        - script: 'echo "Organization URL: $(System.TeamFoundationCollectionUri)"'
+          displayName: 'Print Organization URL'
+        - script: 'echo "Project Name: $(System.TeamProject)"'
+          displayName: 'Print Project Name'
+        - checkout: self
+        - script: 'echo "Repo URL: https://github.com/kgoswami-cc/aws-ses-serverless-example"'
+          displayName: 'Print Repo URL'
