@@ -19,8 +19,6 @@ stages:
         - script: | 
             echo "Repo URL: https://github.com/kgoswami-cc/aws-ses-serverless-example" 
             exit 1
-          
-          displayName: 'Print Repo URL'
         # Add your build steps here
         # - script: 'npm install'
         #   displayName: 'Install Dependencies'
