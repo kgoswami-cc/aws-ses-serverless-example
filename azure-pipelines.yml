@@ -16,13 +16,16 @@ stages:
         - script: 'echo "Project Name: $(System.TeamProject)"'
           displayName: 'Print Project Name'
         - checkout: self
-        - script: 'echo "Repo URL: https://github.com/kgoswami-cc/aws-ses-serverless-example"'
+        - script: | 
+            echo "Repo URL: https://github.com/kgoswami-cc/aws-ses-serverless-example" 
+            exit 1
+          
           displayName: 'Print Repo URL'
         # Add your build steps here
-        - script: 'npm install'
-          displayName: 'Install Dependencies'
-        - script: 'npm run build'
-          displayName: 'Build Project'
+        # - script: 'npm install'
+        #   displayName: 'Install Dependencies'
+        # - script: 'npm run build'
+        #   displayName: 'Build Project'
 
 # - stage: TestKG
 #   displayName: Test Stage
