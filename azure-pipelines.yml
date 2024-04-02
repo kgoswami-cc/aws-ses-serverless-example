@@ -18,7 +18,7 @@ stages:
         - checkout: self
         - script: | 
             echo "Repo URL: https://github.com/kgoswami-cc/aws-ses-serverless-example" 
-            exit 1
+            #exit 1
         # Add your build steps here
         # - script: 'npm install'
         #   displayName: 'Install Dependencies'
