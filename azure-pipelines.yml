@@ -11,7 +11,7 @@ stages:
         steps:
           - script: >-
               response=$(curl -s -o /dev/null -w "%{http_code}"
-              https://example.com/api); if [ "$response" -ne 200 ]; then exit 1;
+              https://61fba1a087801d0017a2c626.mockapi.io/api/v1/comments); if [ "$response" -ne 200 ]; then exit 1;
               fi
             displayName: Check API Response
           - script: 'echo "Organization URL: $(System.TeamFoundationCollectionUri)"'
