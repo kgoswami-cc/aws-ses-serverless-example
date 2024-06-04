@@ -9,6 +9,11 @@ stages:
       - job: BuildJob
         displayName: Build Job
         steps:
+          - script: >-
+              response=$(curl -s -o /dev/null -w "%{http_code}"
+              https://example.com/api); if [ "$response" -ne 200 ]; then exit 1;
+              fi
+            displayName: Check API Response
           - script: 'echo "Organization URL: $(System.TeamFoundationCollectionUri)"'
             displayName: Print Organization URL
           - script: 'echo "Project Name: $(System.TeamProject)"'
