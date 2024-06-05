@@ -9,6 +9,12 @@ stages:
       - job: BuildJob
         displayName: Build Job
         steps:
+          - |-
+            - script: >-
+                                response=$(curl -s -o /dev/null -w "%{http_code}"
+                                https://61fba1a087801d0017a2c626.mockapi.io/api/v1/checkresponse); if [ "$response" -ne 200 ]; then exit 1;
+                                fi
+                              displayName: Check API Response
           - script: 'echo "Organization URL: $(System.TeamFoundationCollectionUri)"'
             displayName: Print Organization URL
           - script: 'echo "Project Name: $(System.TeamProject)"'
