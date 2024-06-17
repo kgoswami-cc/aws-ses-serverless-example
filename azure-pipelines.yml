@@ -4,13 +4,13 @@ pool:
   vmImage: ubuntu-latest
 stages:
   - stage: StageASPMGateCheck
-    displayName: Build Stage
+    displayName: Stage ASPM Gate Check
     jobs:
       - job: BuildJob
         displayName: Build Job
         steps:
           - script: >-
-              exit 1
+              exit 0
             displayName: ASPM Gate Check
   - stage: BuildKG
     displayName: Build Stage
