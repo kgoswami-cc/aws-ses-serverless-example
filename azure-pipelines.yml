@@ -3,24 +3,12 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 stages:
-  - stage: StageASPMGateCheck
-    displayName: Stage ASPM Gate Check
-    jobs:
-      - job: BuildJob
-        displayName: Build Job
-        steps:
-          - script: >-
-              exit 0
-            displayName: ASPM Gate Check
   - stage: BuildKG
     displayName: Build Stage
     jobs:
       - job: BuildJob
         displayName: Build Job
         steps:
-          - script: >-
-              exit 1
-            displayName: ASPM Gate Check
           - script: 'echo "Organization URL: $(System.TeamFoundationCollectionUri)"'
             displayName: Print Organization URL
           - script: 'echo "Project Name: $(System.TeamProject)"'
